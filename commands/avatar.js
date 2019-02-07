@@ -14,6 +14,8 @@ exports.run = async (bot, msg) => {
     })).delete(30000);
 };
 
-module.exports.help = {
-  name: "avatar"
+exports.info = {
+    name: 'avatar',
+    usage: 'avatar <user>',
+    description: 'Gives you the avatar of a user'
 };
