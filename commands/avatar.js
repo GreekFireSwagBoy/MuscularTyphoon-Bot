@@ -15,5 +15,5 @@ exports.run = async (bot, msg) => {
 };
 
 module.exports.help = {
-  name: "8ball"
+  name: "avatar"
 };
