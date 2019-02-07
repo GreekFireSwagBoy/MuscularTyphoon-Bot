@@ -1,2 +1,2 @@
-# MuscularTyphoob-Bot
+# MuscularTyphoon-Bot
 Moderation Bot!
