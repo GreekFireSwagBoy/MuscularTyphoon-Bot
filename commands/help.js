@@ -119,7 +119,7 @@ module.exports.run = async (bot, message, args) => {
                       name: "MuscularTyphoon | Help Page: 2",
                     }
 
-        }});
+        });
       return;
 }
 
