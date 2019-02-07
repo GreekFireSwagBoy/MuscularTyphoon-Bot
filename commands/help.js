@@ -108,7 +108,6 @@ module.exports.run = async (bot, message, args) => {
                               name: ";tempmute",
                               value: "Usage: ;tempmute [@user] [seconds]",
                           },
-                          {
               ],
                   timestamp: new Date(),
                   footer: {
