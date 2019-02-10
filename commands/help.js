@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
         let Sembed = new Discord.RichEmbed()
         .setColor(colours.cyan)
-        .setAuthor(`TestBOT Help`, message.guild.iconURL)
+        .setAuthor(`MuscularTyphoon Bot Help`, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`These are the avaliable commands for the MuscularTyphoon Bot!\nThe bot prefix is: ${prefix}`)
