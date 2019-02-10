@@ -14,10 +14,10 @@ module.exports.run = async (bot, message, args) => {
 
         let mEmbed = new Discord.RichEmbed()
         .setColor(colours.cyan)
-        .setAuthor(`TestBot MEMES!`, message.guild.iconURL)
+        .setAuthor(`MuscularTyphoon Bot MEMES!`, message.guild.iconURL)
         .setImage(body.url)
         .setTimestamp()
-        .setFooter(`TEST BOT`, bot.user.displayAvatarURL)
+        .setFooter(`MuscularTyphoon Bot`, bot.user.displayAvatarURL)
 
         message.channel.send({embed: mEmbed})
 
