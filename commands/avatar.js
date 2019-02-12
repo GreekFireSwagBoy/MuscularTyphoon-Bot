@@ -1,5 +1,3 @@
-const = require("discord.js");
-
 module.exports.run = async (bot, msg, args) => {
   let aTaged = msg.mentions.users.first();
   msg.channel.send(`${aTaged.displayAvatarURL}`);
