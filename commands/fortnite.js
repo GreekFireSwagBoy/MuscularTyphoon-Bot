@@ -1,7 +1,3 @@
-const Command = require('../../utilities/classes/Command.js');
-const MessageUtil = require('../../utilities/classes/MessageUtil.js');
-const Translation = require('../../utilities/classes/Translation.js');
-
 const got = require('got');
 const Discord = require('discord.js');
 
