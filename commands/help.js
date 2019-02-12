@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
         .setDescription(`These are the avaliable commands for the MuscularTyphoon Bot!\nThe bot prefix is: ${prefix}`)
-        .addField(`Commands:`, "``doggo`` ``warn`` ``pay`` ``poll`` ``serverinfo`` ``userinfo`` ``prefix`` ``coins`` ``meme`` ``clear`` ``say`` ``kick`` ``ban`` ``mute`` ``tempmute`` ``status`` ``8ball`` ``report`` ``addrole`` ``removerole`` ``level`` ``coins`` ``pay`` ``botinfo``")
+        .addField(`Commands:`, "``doggo`` ``warn`` ``pay`` ``poll`` ``serverinfo`` ``userinfo`` ``prefix`` ``coins`` ``meme`` ``clear`` ``say`` ``kick`` ``ban`` ``mute`` ``tempmute`` ``status`` ``8ball`` ``report`` ``addrole`` ``removerole`` ``level`` ``coins`` ``pay`` ``botinfo`` ``avatar``")
         .setFooter("MuscularTyphoon Bot 2k18", bot.user.displayAvatarURL)
         message.channel.send(embed).then(m => m.delete(10000));
         message.author.send(Sembed)
