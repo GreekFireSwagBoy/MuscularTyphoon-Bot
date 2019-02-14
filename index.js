@@ -27,7 +27,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () => {
 
   console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setActivity("https://zombsroyale.io/", {type: "PLAYING"});
+  bot.user.setActivity("Zombsroyale.io", {type: "PLAYING"});
 
 });
 
