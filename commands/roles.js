@@ -77,7 +77,7 @@ exports.run = async (client, message, args) => {
                     message.channel.send(`You have been added to the **${c.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case 'd':
+                case 'D':
                     if (message.member.roles.has(d.id)) {
                         msg.delete(2000);
                         return message.channel.send('You are already in this role!').then(m => m.delete(3000));
@@ -99,6 +99,6 @@ exports.run = async (client, message, args) => {
 
 };
 
-exports.help = {
+module.exports.help = {
     name: 'roles'
 };
