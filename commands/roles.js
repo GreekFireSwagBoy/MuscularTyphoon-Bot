@@ -73,9 +73,23 @@ exports.run = async (client, message, args) => {
                         console.log(err);
                         return message.channel.send(`Error adding you to this role: **${err.message}**.`);
                     });
+
                     message.channel.send(`You have been added to the **${c.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
+                case 'd':
+                    if (message.member.roles.has(d.id)) {
+                        msg.delete(2000);
+                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
+                        }
+                        message.member.addRole(d).catch(err => {
+                            console.log(err);
+                            return message.channel.send(`Error adding you to this role: **${err.message}**.`);
+                        });
+
+                        message.channel.send(`You have been added to the **${d.name}** role!`).then(m => m.delete(3000));
+                        msg.delete();
+                        break;
             }
         }).catch(collected => {
             return message.channel.send(`I couldn't add you to this role!`);
