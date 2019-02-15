@@ -8,8 +8,9 @@ exports.run = async (client, message, args) => {
     const a = message.guild.roles.get('491402247821983749'); // Moderator
     const b = message.guild.roles.get('491402534418644993'); // Administrator
     const c = message.guild.roles.get('491357023024447488'); // Developer
+    const d = message.guild.roles.get('545989872683319299'); // Aerospace Kids
 
-    const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['🇦', '🇧', '🇨', 'd'].includes(reaction.emoji.name) && user.id === message.author.id;
 
     const embed = new RichEmbed()
         .setTitle('Avaiilable Roles')
@@ -18,6 +19,7 @@ exports.run = async (client, message, args) => {
         🇦 ${a.toString()}
         🇧 ${b.toString()}
         🇨 ${c.toString()}
+        d ${d.toString()}
         `)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
@@ -27,6 +29,7 @@ exports.run = async (client, message, args) => {
         await msg.react('🇦');
         await msg.react('🇧');
         await msg.react('🇨');
+        await msg.react('d');
 
         msg.awaitReactions(filter, {
             max: 1,
