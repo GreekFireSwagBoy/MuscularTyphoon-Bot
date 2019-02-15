@@ -5,12 +5,11 @@ exports.run = async (client, message, args) => {
 
     await message.delete().catch(O_o=>{});
 
-    const a = message.guild.roles.get('491402247821983749'); // Moderator
+    const a = message.guild.roles.get('545989872683319299'); // Aerospace Kids
     const b = message.guild.roles.get('491402534418644993'); // Administrator
     const c = message.guild.roles.get('491357023024447488'); // Developer
-    const d = message.guild.roles.get('545989872683319299'); // Aerospace Kids
 
-    const filter = (reaction, user) => ['🇦', '🇧', '🇨', 'd'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
 
     const embed = new RichEmbed()
         .setTitle('Avaiilable Roles')
@@ -19,7 +18,6 @@ exports.run = async (client, message, args) => {
         🇦 ${a.toString()}
         🇧 ${b.toString()}
         🇨 ${c.toString()}
-        d ${d.toString()}
         `)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
@@ -29,7 +27,6 @@ exports.run = async (client, message, args) => {
         await msg.react('🇦');
         await msg.react('🇧');
         await msg.react('🇨');
-        await msg.react('d');
 
         msg.awaitReactions(filter, {
             max: 1,
@@ -73,23 +70,9 @@ exports.run = async (client, message, args) => {
                         console.log(err);
                         return message.channel.send(`Error adding you to this role: **${err.message}**.`);
                     });
-
                     message.channel.send(`You have been added to the **${c.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case 'D':
-                    if (message.member.roles.has(d.id)) {
-                        msg.delete(2000);
-                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
-                        }
-                        message.member.addRole(d).catch(err => {
-                            console.log(err);
-                            return message.channel.send(`Error adding you to this role: **${err.message}**.`);
-                        });
-
-                        message.channel.send(`You have been added to the **${d.name}** role!`).then(m => m.delete(3000));
-                        msg.delete();
-                        break;
             }
         }).catch(collected => {
             return message.channel.send(`I couldn't add you to this role!`);
@@ -99,6 +82,6 @@ exports.run = async (client, message, args) => {
 
 };
 
-module.exports.help = {
+exports.help = {
     name: 'roles'
 };
