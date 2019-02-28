@@ -4,8 +4,8 @@ module.exports.run = async (bot, message, args) => {
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Sorry mate, looks like you do not have a high enough role.!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned, possibly due to there roles!");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
