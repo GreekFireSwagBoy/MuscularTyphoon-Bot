@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.reply("Couldn't find them yo");
-  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("THEY ARE AUTHORIZED MY THE MASTER PLEASE SEE HIM FOR FURTHER DETAILS.");
+  if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("THEY ARE AUTHORIZED BY THE MASTER PLEASE SEE HIM FOR FURTHER DETAILS.");
   let reason = args.join(" ").slice(22);
 
   if(!warns[wUser.id]) warns[wUser.id] = {
