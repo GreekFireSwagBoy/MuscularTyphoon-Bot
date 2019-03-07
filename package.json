@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "fortnite": "^4.1.1",
     "ms": "^2.1.1",
-    "superagent": "^4.1.0"
+    "node-fetch": "^2.3.0",
+    "superagent": "^4.1.0",
+    "urban": "^0.3.2"
   }
 }
