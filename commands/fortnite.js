@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     let username = args[0];
     let platform = args[2] || 'pc';
     let gamemode = args[1];
-    if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: /fortnite <username> <mode> <platform>");
+    if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: ;fortnite <username> <mode> <platform>");
 
 
     if(!username) return message.reply("Please provide a username.")
