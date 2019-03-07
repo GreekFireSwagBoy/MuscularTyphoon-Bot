@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 
    message.channel.send(`${args[1]} warning have been removed from ${pUser}'s warnings.`);
 
-   fs.writeFile("./warnings.json", JSON.stringify(inscoins), (err) => {
+   fs.writeFile("./warnings.json", JSON.stringify(coins), (err) => {
        if(err) console.log(err)
    });
   
