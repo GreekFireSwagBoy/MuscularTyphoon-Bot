@@ -1,48 +1,121 @@
 const Discord = require("discord.js");
 const Client = require("fortnite");
-const fkey = require("../fortnite.json")
-const fortnite = new Client(fkey.token)
+const fortnite = new Client("d207f61e-e19a-43dc-a9d4-669c50311367");
+
 module.exports.run = async (bot, message, args) => {
-  //this is where the actual code for the command goes
-  await message.delete();
-  if (message.author.id !== '178657593030475776') return;
 
-  const filter = m => m.author.id === message.author.id;
-  message.reply("Please chose a username... Will expire in 10 seconds...").then(q => q.delete(15000))
-  message.channel.awaitMessages(filter, {
-    max: 1,
-    time: 10000
-  }).then(collected => {
-    collected.delete(15000);
-    if (collected.first().content === 'cancel') {
-      return message.reply("Canceled.");
-    }
+    await message.delete();
+    
+    
+    
+    
 
-    let username = collected.first().content;
+    let username = args[0];
+    let platform = args[2] || 'pc';
+    let gamemode = args[1];
+    if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply("Usage: /fortnite <username> <mode> <platform>");
 
-    fortnite.user(username, 'pc').then(data => {
-      //console.log(data.stats.lifetime)
-      let embed = new Discord.RichEmbed()
-        .setTitle(username)
-        .setColor("BLURPLE")
-        .setDescription("Lifetime Stats")
-        .setThumbnail(bot.user.displayAvatarURL)
-        .addField("Top 3s", data.stats.lifetime[1]["Top 3s"], true)
-        .addField("Top 5s", data.stats.lifetime[0]["Top 5s"], true)
-        .addField("Wins", data.stats.lifetime[8]["Wins"], true)
-        .addField("Win/Lose", data.stats.lifetime[9]["Win%"], true)
-        .addField("Kills", data.stats.lifetime[10]["Kills"], true)
-        .addField("K/D", data.stats.lifetime[11]["K/d"], true);
-      return message.channel.send(embed);
-    }).catch(err => {
-      message.reply("Could not find user... Double check spelling").then(r => r.delete(5000));
+
+    if(!username) return message.reply("Please provide a username.")
+
+    let data = fortnite.user(username, platform).then(data => {
+
+        let stats = data.stats;
+        if(gamemode === 'solo'){
+            let solostats = stats.solo;
+            let score = solostats.score;
+            let kd = solostats.kd;
+            let matches = solostats.matches;
+            let kills = solostats.kills;
+            let wins = solostats.wins;
+            let top3 = solostats.top_3;
+
+            let embed = new Discord.RichEmbed()
+            .setTitle("Fortnite Tracker Solo Stats")
+            .setAuthor(data.username)
+            .setColor("#0000ff")
+            .addField("Wins", wins, true)
+            .addField("Kills", kills, true)
+            .addField("Score", score, true)
+            .addField("Matches Played", matches, true)
+            .addField("Top 3s", top3, true)
+            .addField("Kill/Death Ratio", kd, true);
+    
+            return message.channel.send(embed);
+
+        }else if (gamemode === 'duo'){
+            let duostats = stats.duo;
+            let score = duostats.score;
+            let kd = duostats.kd;
+            let matches = duostats.matches;
+            let kills = duostats.kills;
+            let wins = duostats.wins;
+            let top3 = duostats.top_3;
+
+            let embed = new Discord.RichEmbed()
+            .setTitle("Fortnite Tracker Duo Stats")
+            .setAuthor(data.username)
+            .setColor("#0000ff")
+            .addField("Wins", wins, true)
+            .addField("Kills", kills, true)
+            .addField("Score", score, true)
+            .addField("Matches Played", matches, true)
+            .addField("Top 3s", top3, true)
+            .addField("Kill/Death Ratio", kd, true);
+    
+            return message.channel.send(embed);
+
+        }else if (gamemode === 'squad'){
+            let squadstats = stats.squad;
+            let score = squadstats.score;
+            let kd = squadstats.kd;
+            let matches = squadstats.matches;
+            let kills = squadstats.kills;
+            let wins = squadstats.wins;
+            let top3 = squadstats.top_3;
+
+            let embed = new Discord.RichEmbed()
+            .setTitle("Fortnite Tracker Squad Stats")
+            .setAuthor(data.username)
+            .setColor("#0000ff")
+            .addField("Wins", wins, true)
+            .addField("Kills", kills, true)
+            .addField("Score", score, true)
+            .addField("Matches Played", matches, true)
+            .addField("Top 3s", top3, true)
+            .addField("Kill/Death Ratio", kd, true);
+    
+            return message.channel.send(embed);
+
+        }else{
+
+
+        let lifetime = stats.lifetime;
+        let score = lifetime[6] ['Score'];
+        let mPlayed = lifetime[7] ['Matches Played'];
+        let wins = lifetime[8] ['Wins'];
+        let winPercentage = lifetime[9] ['Win%'];
+        let kills = lifetime[10] ['Kills'];
+        let kd = lifetime[11] ['K/d'];
+
+        let embed = new Discord.RichEmbed()
+        .setTitle("Fortnite Tracker Lifetime Stats")
+        .setAuthor(data.username)
+        .setColor("#0000ff")
+        .addField("Wins", wins, true)
+        .addField("Kills", kills, true)
+        .addField("Score", score, true)
+        .addField("Matches Played", mPlayed, true)
+        .addField("Win Percentage", winPercentage, true)
+        .addField("Kill/Death Ratio", kd, true);
+
+        return message.channel.send(embed);
+        
+        }
+
     });
-  }).catch(err => {
-    message.reply("Cancelled...").then(r => r.delete(5000));
-    console.log("Time exceeded. Message await cancelled.");
-  });
 }
-//name this whatever the command name is.
+
 module.exports.help = {
-  name: "fortnite"
+    name: "fortnite"
 }
