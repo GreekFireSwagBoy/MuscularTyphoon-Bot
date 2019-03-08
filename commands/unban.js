@@ -24,17 +24,17 @@ module.exports.run = async (bot, message, args) => {
 
     let embed = new Discord.RichEmbed()
     .setColor(colours.redlight)
-    .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
+    .setAuthor(`${message.guild.name} logs`, message.guild.iconURL)
     .addField("Moderation:", "unban")
     .addField("Moderated on:", `${bannedMember.username} (${bannedMember.id})`)
     .addField("Moderator:", message.author.username)
     .addField("Reason:", reason)
     .addField("Date:", message.createdAt.toLocaleString())
     
-        let sChannel = message.guild.channels.find(c => c.name === "tut-modlogs")
+        let sChannel = message.guild.channels.find(c => c.name === "logs")
         sChannel.send(embed)
 
 }
 
 module.exports.config = {
-    name: "unban",
+    name: "unban"
