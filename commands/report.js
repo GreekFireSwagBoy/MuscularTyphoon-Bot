@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Reason", rreason);
 
     let reportschannel = message.guild.channels.find(`name`, "logs");
-    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+    if(!reportschannel) return message.channel.send("Couldn't find your channel for logs, I suggest that you make one in order to use this command.");
 
 
     message.delete().catch(O_o=>{});
