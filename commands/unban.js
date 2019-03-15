@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Time", message.createdAt)
     .addField("Reason", reason)
     .setTimestamp()
-    .setFooter("GhoulRotMG ©2018", jsicon);
+    .setFooter("MuscularTyphoon Bot", jsicon);
 
     let incidentchannel = message.guild.channels.find(`name`, "logs");
     if(!incidentchannel) return message.channel.send("Can't find logs channel.");
