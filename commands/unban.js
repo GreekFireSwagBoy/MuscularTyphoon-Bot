@@ -24,8 +24,8 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .setFooter("GhoulRotMG ©2018", jsicon);
 
-    let incidentchannel = message.guild.channels.find(`name`, "incidents");
-    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+    let incidentchannel = message.guild.channels.find(`name`, "logs");
+    if(!incidentchannel) return message.channel.send("Can't find logs channel.");
 
     message.guild.unban(user);
     incidentchannel.send(unbanEmbed);
