@@ -10,10 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "fortnite": "^4.1.1",
+    "discord.js-commando": "^0.10.0",
+    "fortnite": "^4.3.2",
+    "fs": "0.0.1-security",
     "ms": "^2.1.1",
     "node-fetch": "^2.3.0",
+    "strict-uri-encode": "^2.0.0",
     "superagent": "^4.1.0",
-    "urban": "^0.3.2"
+    "urban": "^0.3.2",
+    "weather-js": "^2.0.0"
   }
 }
