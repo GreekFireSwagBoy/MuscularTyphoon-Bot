@@ -23,7 +23,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setGame('Playing a Game!', 'https://twitch.tv/muscularhi');
+  bot.user.setGame('Watching muscularhi', 'https://twitch.tv/muscularhi');
 });
 
 bot.on("message", async message => {
